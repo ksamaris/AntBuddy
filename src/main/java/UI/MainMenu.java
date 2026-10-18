@@ -4,6 +4,7 @@
  */
 package UI;
 
+import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,14 +14,35 @@ import javax.swing.JOptionPane;
 public class MainMenu extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainMenu.class.getName());
-
+    
+    private AddProductsUI addproductsui;
+    
     /**
      * Creates new form MainMenu
      */
     public MainMenu() {
         initComponents();
+        
         setTitle("AntBuddy");
         setLocationRelativeTo(null);
+        
+        addproductsui = new AddProductsUI();
+        showPanels(addproductsui);
+    }
+    
+    /**
+     * Method that show panels in the panel with name "content".
+     * 
+     * @param namePanel Panel to display above the content panel.
+     */
+    void showPanels(javax.swing.JPanel namePanel){
+        namePanel.setSize(694, 600);
+        namePanel.setLocation(0, 0);
+
+        Jpanelcontent.removeAll();
+        Jpanelcontent.add(namePanel, BorderLayout.CENTER);
+        Jpanelcontent.revalidate();
+        Jpanelcontent.repaint();
     }
 
     /**
@@ -32,85 +54,85 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        AddProducts = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        JpanelBase = new javax.swing.JPanel();
+        JpanelSidebar = new javax.swing.JPanel();
+        btnAddProducts = new javax.swing.JButton();
+        Jpanelcontent = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        JpanelBase.setBackground(new java.awt.Color(102, 102, 102));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        JpanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
 
-        AddProducts.setBackground(new java.awt.Color(255, 255, 102));
-        AddProducts.setForeground(new java.awt.Color(0, 0, 0));
-        AddProducts.setText("Add products");
-        AddProducts.addActionListener(this::AddProductsActionPerformed);
+        btnAddProducts.setBackground(new java.awt.Color(255, 255, 102));
+        btnAddProducts.setForeground(new java.awt.Color(0, 0, 0));
+        btnAddProducts.setText("Add products");
+        btnAddProducts.addActionListener(this::btnAddProductsActionPerformed);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout JpanelSidebarLayout = new javax.swing.GroupLayout(JpanelSidebar);
+        JpanelSidebar.setLayout(JpanelSidebarLayout);
+        JpanelSidebarLayout.setHorizontalGroup(
+            JpanelSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpanelSidebarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(AddProducts, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                .addComponent(btnAddProducts, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        JpanelSidebarLayout.setVerticalGroup(
+            JpanelSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpanelSidebarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(AddProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(553, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setForeground(new java.awt.Color(255, 153, 255));
+        Jpanelcontent.setBackground(new java.awt.Color(255, 255, 255));
+        Jpanelcontent.setForeground(new java.awt.Color(255, 153, 255));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout JpanelcontentLayout = new javax.swing.GroupLayout(Jpanelcontent);
+        Jpanelcontent.setLayout(JpanelcontentLayout);
+        JpanelcontentLayout.setHorizontalGroup(
+            JpanelcontentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 694, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        JpanelcontentLayout.setVerticalGroup(
+            JpanelcontentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout JpanelBaseLayout = new javax.swing.GroupLayout(JpanelBase);
+        JpanelBase.setLayout(JpanelBaseLayout);
+        JpanelBaseLayout.setHorizontalGroup(
+            JpanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpanelBaseLayout.createSequentialGroup()
+                .addComponent(JpanelSidebar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Jpanelcontent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        JpanelBaseLayout.setVerticalGroup(
+            JpanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JpanelSidebar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jpanelcontent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(JpanelBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(JpanelBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddProductsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddProductsActionPerformed
+    private void btnAddProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductsActionPerformed
+        showPanels(addproductsui);
+    }//GEN-LAST:event_btnAddProductsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,9 +160,9 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddProducts;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel JpanelBase;
+    private javax.swing.JPanel JpanelSidebar;
+    private javax.swing.JPanel Jpanelcontent;
+    private javax.swing.JButton btnAddProducts;
     // End of variables declaration//GEN-END:variables
 }
