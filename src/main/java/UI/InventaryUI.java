@@ -4,6 +4,8 @@
  */
 package UI;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author kevin
@@ -16,7 +18,20 @@ public class InventaryUI extends javax.swing.JPanel {
     public InventaryUI() {
         initComponents();
     }
-
+    
+    public void tableConfiguration(){
+        
+        DefaultTableModel modeltable=new DefaultTableModel();
+        
+        modeltable.addColumn("GTIN");
+        modeltable.addColumn("Name");
+        modeltable.addColumn("Price");
+        modeltable.addColumn("Category");
+        modeltable.addColumn("Stock");
+        
+        tableProducts.setModel(modeltable);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
