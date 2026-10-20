@@ -4,6 +4,7 @@
  */
 package UI;
 
+import Persistence.ConnectionDB;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 
@@ -28,6 +29,9 @@ public class MainMenu extends javax.swing.JFrame {
         
         addproductsui = new AddProductsUI();
         showPanels(addproductsui);
+        
+        ConnectionDB connecobj = new ConnectionDB();
+        connecobj.establishConnection();
     }
     
     /**
