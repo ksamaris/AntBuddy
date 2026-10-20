@@ -17,6 +17,8 @@ public class InventaryUI extends javax.swing.JPanel {
      */
     public InventaryUI() {
         initComponents();
+        
+        tableConfiguration();
     }
     
     public void tableConfiguration(){
