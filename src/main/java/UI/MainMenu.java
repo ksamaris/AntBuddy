@@ -4,6 +4,7 @@
  */
 package UI;
 
+import Persistence.ConnectionDB;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 
@@ -16,6 +17,7 @@ public class MainMenu extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainMenu.class.getName());
     
     private AddProductsUI addproductsui;
+    private InventaryUI inui;
     
     /**
      * Creates new form MainMenu
@@ -27,7 +29,11 @@ public class MainMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         
         addproductsui = new AddProductsUI();
+        inui = new InventaryUI();
         showPanels(addproductsui);
+        
+        ConnectionDB connecobj = new ConnectionDB();
+        connecobj.establishConnection();
     }
     
     /**
@@ -57,6 +63,7 @@ public class MainMenu extends javax.swing.JFrame {
         JpanelBase = new javax.swing.JPanel();
         JpanelSidebar = new javax.swing.JPanel();
         btnAddProducts = new javax.swing.JButton();
+        btnInventary = new javax.swing.JButton();
         Jpanelcontent = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,21 +77,30 @@ public class MainMenu extends javax.swing.JFrame {
         btnAddProducts.setText("Add products");
         btnAddProducts.addActionListener(this::btnAddProductsActionPerformed);
 
+        btnInventary.setBackground(new java.awt.Color(0, 204, 51));
+        btnInventary.setForeground(new java.awt.Color(0, 0, 0));
+        btnInventary.setText("Inventary");
+        btnInventary.addActionListener(this::btnInventaryActionPerformed);
+
         javax.swing.GroupLayout JpanelSidebarLayout = new javax.swing.GroupLayout(JpanelSidebar);
         JpanelSidebar.setLayout(JpanelSidebarLayout);
         JpanelSidebarLayout.setHorizontalGroup(
             JpanelSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpanelSidebarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAddProducts, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                .addGroup(JpanelSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnInventary, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                    .addComponent(btnAddProducts, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
                 .addContainerGap())
         );
         JpanelSidebarLayout.setVerticalGroup(
             JpanelSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpanelSidebarLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(btnInventary, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(553, Short.MAX_VALUE))
+                .addContainerGap(506, Short.MAX_VALUE))
         );
 
         Jpanelcontent.setBackground(new java.awt.Color(255, 255, 255));
@@ -134,6 +150,10 @@ public class MainMenu extends javax.swing.JFrame {
         showPanels(addproductsui);
     }//GEN-LAST:event_btnAddProductsActionPerformed
 
+    private void btnInventaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventaryActionPerformed
+        showPanels(inui);
+    }//GEN-LAST:event_btnInventaryActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -164,5 +184,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel JpanelSidebar;
     private javax.swing.JPanel Jpanelcontent;
     private javax.swing.JButton btnAddProducts;
+    private javax.swing.JButton btnInventary;
     // End of variables declaration//GEN-END:variables
 }
