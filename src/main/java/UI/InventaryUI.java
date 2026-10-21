@@ -1,8 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package UI;
+
+import Model.Product;
+import Service.ProductService;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -12,16 +13,19 @@ import javax.swing.table.DefaultTableModel;
  */
 public class InventaryUI extends javax.swing.JPanel {
 
+    
+    private ProductService productservice = new ProductService();
+    
     /**
      * Creates new form Inventary
      */
     public InventaryUI() {
         initComponents();
         
-        tableConfiguration();
+        loadTableData();
     }
     
-    public void tableConfiguration(){
+    public void loadTableData(){
         
         DefaultTableModel modeltable=new DefaultTableModel();
         
@@ -31,7 +35,25 @@ public class InventaryUI extends javax.swing.JPanel {
         modeltable.addColumn("Category");
         modeltable.addColumn("Stock");
         
-        tableProducts.setModel(modeltable);
+        try {
+            List<Product> inventarylist = productservice.listProductsTable();
+            
+            for (Product p : inventarylist) {
+                Object[] row = {
+                    p.getGTIN(),
+                    p.getName(),
+                    p.getPrice(),
+                    p.getCategory(),
+                    p.getStock()
+                };
+                modeltable.addRow(row);
+            }
+            
+            tableProducts.setModel(modeltable);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "ERROR: " + e.toString());
+        }
     }
     
     /**
