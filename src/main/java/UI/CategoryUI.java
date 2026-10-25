@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CategoryUI extends javax.swing.JPanel {
 
-    private CategoryService categoryservice; 
+    private CategoryService categoryservice = new CategoryService(); 
     
     /**
      * Creates new form CategoryUI
@@ -45,7 +45,7 @@ public class CategoryUI extends javax.swing.JPanel {
                 modelcategorytable.addRow(row);
             }
             
-            tableProducts.setModel(modelcategorytable);
+            tblCategory.setModel(modelcategorytable);
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ERROR: " + e.toString());
