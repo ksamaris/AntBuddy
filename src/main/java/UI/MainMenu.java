@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package UI;
 
 import Persistence.ConnectionDB;
@@ -18,6 +14,7 @@ public class MainMenu extends javax.swing.JFrame {
     
     private AddProductsUI addproductsui;
     private InventaryUI inui;
+    private CategoryUI caui;
     
     /**
      * Creates new form MainMenu
@@ -30,6 +27,7 @@ public class MainMenu extends javax.swing.JFrame {
         
         addproductsui = new AddProductsUI();
         inui = new InventaryUI();
+        caui =new CategoryUI();
         showPanels(addproductsui);
         
         ConnectionDB connecobj = new ConnectionDB();
@@ -64,6 +62,7 @@ public class MainMenu extends javax.swing.JFrame {
         JpanelSidebar = new javax.swing.JPanel();
         btnAddProducts = new javax.swing.JButton();
         btnInventary = new javax.swing.JButton();
+        btnCategories = new javax.swing.JButton();
         Jpanelcontent = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,6 +81,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnInventary.setText("Inventary");
         btnInventary.addActionListener(this::btnInventaryActionPerformed);
 
+        btnCategories.setBackground(new java.awt.Color(255, 102, 102));
+        btnCategories.setForeground(new java.awt.Color(0, 0, 0));
+        btnCategories.setText("Categories");
+        btnCategories.addActionListener(this::btnCategoriesActionPerformed);
+
         javax.swing.GroupLayout JpanelSidebarLayout = new javax.swing.GroupLayout(JpanelSidebar);
         JpanelSidebar.setLayout(JpanelSidebarLayout);
         JpanelSidebarLayout.setHorizontalGroup(
@@ -89,8 +93,9 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(JpanelSidebarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JpanelSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAddProducts, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                     .addComponent(btnInventary, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                    .addComponent(btnAddProducts, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
+                    .addComponent(btnCategories, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
                 .addContainerGap())
         );
         JpanelSidebarLayout.setVerticalGroup(
@@ -100,7 +105,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(btnInventary, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(506, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(459, Short.MAX_VALUE))
         );
 
         Jpanelcontent.setBackground(new java.awt.Color(255, 255, 255));
@@ -154,6 +161,10 @@ public class MainMenu extends javax.swing.JFrame {
         showPanels(inui);
     }//GEN-LAST:event_btnInventaryActionPerformed
 
+    private void btnCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoriesActionPerformed
+        showPanels(caui);
+    }//GEN-LAST:event_btnCategoriesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -184,6 +195,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel JpanelSidebar;
     private javax.swing.JPanel Jpanelcontent;
     private javax.swing.JButton btnAddProducts;
+    private javax.swing.JButton btnCategories;
     private javax.swing.JButton btnInventary;
     // End of variables declaration//GEN-END:variables
 }

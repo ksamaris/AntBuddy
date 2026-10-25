@@ -24,7 +24,7 @@ public class CategoryRepository {
         
         String sql = "SELECT * FROM CATEGORY;";
         
-        List<Category> productslist = new ArrayList<>();
+        List<Category> categorieslist = new ArrayList<>();
 
         try (Connection conn = objcon.establishConnection();                
              Statement st = conn.createStatement();
@@ -32,18 +32,18 @@ public class CategoryRepository {
 
             while (rs.next()) {
                 
-                Category product = new Category();
+                Category category = new Category();
                 
-                product.setCodeCategory(rs.getString(1));
-                product.setNameCategory(rs.getString(2));
+                category.setCodeCategory(rs.getString(1));
+                category.setNameCategory(rs.getString(2));
                 
-                productslist.add(product);
+                categorieslist.add(category);
             }
 
         } catch (SQLException e) {
             System.err.println("ERROR : " + e.toString());
         }
 
-        return productslist;
+        return categorieslist;
     }
 }
