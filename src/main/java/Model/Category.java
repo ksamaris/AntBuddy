@@ -4,7 +4,7 @@ package Model;
  *
  * @author kevin
  */
-public abstract class Category {
+public class Category {
     
     private String CodeCategory;
     private String NameCategory;
