@@ -1,8 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package UI;
+
+import Model.Category;
+import Service.CategoryService;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -10,13 +12,45 @@ package UI;
  */
 public class CategoryUI extends javax.swing.JPanel {
 
+    private CategoryService categoryservice; 
+    
     /**
      * Creates new form CategoryUI
      */
     public CategoryUI() {
         initComponents();
+        
+        loadCategoryTableData();
     }
 
+    /**
+     * Configure the table model so that it can then load the data that CategoryService.
+     * 
+     */
+    public void loadCategoryTableData(){
+        
+        DefaultTableModel modelcategorytable=new DefaultTableModel();
+        
+        modelcategorytable.addColumn("Code");
+        modelcategorytable.addColumn("Category Name");
+        
+        try {
+            List<Category> inventarylist = categoryservice.listProductsTable();
+            
+            for (Category c : inventarylist) {
+                Object[] row = {
+                    c.getCodeCategory(),
+                    c.getNameCategory()
+                };
+                modelcategorytable.addRow(row);
+            }
+            
+            tableProducts.setModel(modelcategorytable);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "ERROR: " + e.toString());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
