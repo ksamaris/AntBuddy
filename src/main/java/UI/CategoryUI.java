@@ -35,9 +35,9 @@ public class CategoryUI extends javax.swing.JPanel {
         modelcategorytable.addColumn("Category Name");
         
         try {
-            List<Category> inventarylist = categoryservice.listProductsTable();
+            List<Category> categorieslist = categoryservice.listProductsTable();
             
-            for (Category c : inventarylist) {
+            for (Category c : categorieslist) {
                 Object[] row = {
                     c.getCodeCategory(),
                     c.getNameCategory()
