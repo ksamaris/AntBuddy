@@ -31,7 +31,6 @@ public class ConnectionDB {
             
             connect = DriverManager.getConnection(string, user, password);
             Class.forName("org.postgresql.Driver");
-            JOptionPane.showMessageDialog(null, "Successful connection to the database");
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "ERROR: "+e.toString());
