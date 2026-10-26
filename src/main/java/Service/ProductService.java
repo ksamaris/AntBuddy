@@ -60,4 +60,24 @@ public class ProductService {
         
         return "The product could not be saved";
     }
+    
+    /**
+     * Check the validity of a product's new data and update it if all the rules are met.
+     * 
+     * @param p the product with the new information.
+     * @return A message describing the result.
+     */
+    public String updateProduct(Product p){
+        String error = validateProduct(p);
+        
+        if (error != null) {
+            return error;
+        }
+        
+        if(productrepository.updateProduct(p)){
+            return "Product successfully updated";
+        }
+        
+        return "The product could not be updated";
+    }
 }
