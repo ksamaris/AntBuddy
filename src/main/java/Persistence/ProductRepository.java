@@ -91,4 +91,37 @@ public class ProductRepository {
         
         return saved;
     }
+    
+    public boolean updateProduct(Product p){
+        boolean updated = false; 
+        
+        try{
+            ConnectionDB objcon = new ConnectionDB();
+            Connection conn = objcon.establishConnection();
+            
+            String sql = "UPDATE product SET product_name = ?, price = ?, name_category = ?, "
+                   + "stock = ?, stock_minimum = ? WHERE gtin = ?";
+            
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, p.getName());
+            ps.setDouble(2, p.getPrice());
+            ps.setString(3, p.getCategory());
+            ps.setInt(4, p.getStock());
+            ps.setInt(5, p.getStockMin());
+            ps.setString(6, p.getGTIN());
+            
+            if (ps.executeUpdate() > 0) {
+            updated = true;
+            }
+            
+            ps.close();
+            conn.close();
+            
+        }catch(SQLException e){
+            System.err.println("Error: "+ e.toString());
+            return false;
+        }
+        
+        return updated;
+    }
 }
