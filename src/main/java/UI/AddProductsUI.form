@@ -51,7 +51,7 @@
                               <Component id="txtGTIN" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="labelPrice" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="labelStock" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtPrice1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtPrice" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="txtStock" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
@@ -61,7 +61,7 @@
                               <Component id="labelCategory" min="-2" max="-2" attributes="0"/>
                               <Component id="txtName" pref="200" max="32767" attributes="0"/>
                               <Component id="labelName" min="-2" max="-2" attributes="0"/>
-                              <Component id="cboxCategory" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cmbCategory" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -90,8 +90,8 @@
                   </Group>
                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtPrice1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cboxCategory" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbCategory" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -165,7 +165,7 @@
             <Property name="text" type="java.lang.String" value="Stock minimum of the product"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPrice1">
+        <Component class="javax.swing.JTextField" name="txtPrice">
         </Component>
         <Component class="javax.swing.JTextField" name="txtStock">
         </Component>
@@ -183,7 +183,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cboxCategory">
+        <Component class="javax.swing.JComboBox" name="cmbCategory">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -195,7 +195,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboxCategoryActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbCategoryActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
