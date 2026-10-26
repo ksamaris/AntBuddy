@@ -3,10 +3,12 @@ package Persistence;
 import Model.Product;
 import java.util.List;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,5 +51,44 @@ public class ProductRepository {
         }
 
         return productslist;
+    }
+    
+    /**
+     * Establish a connection to the database to insert the new product data.
+     * 
+     * @return Returns a Boolean value to confirm whether or not the process was successful.
+     */
+    public boolean insertProduct(Product p){
+        boolean saved = false; 
+        
+        
+        try{
+            ConnectionDB objcon = new ConnectionDB();
+            Connection conn = objcon.establishConnection();
+            
+            String sql = "INSERT INTO product (gtin, product_name, price, name_category, stock, stock_minimum) "
+               + "VALUES (?, ?, ?, ?, ?, ?)";
+            
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, p.getGTIN());
+            ps.setString(2, p.getName());
+            ps.setDouble(3, p.getPrice());
+            ps.setString(4, p.getCategory());
+            ps.setInt(5, p.getStock());
+            ps.setInt(6, p.getStockMin());
+            
+            if (ps.executeUpdate() > 0) {
+            saved = true;
+            
+            ps.close();
+            conn.close();
+            }
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR: "+e.toString());
+            return false;
+        }
+        
+        return saved;
     }
 }
