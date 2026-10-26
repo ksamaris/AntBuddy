@@ -48,7 +48,18 @@ public class MainMenu extends javax.swing.JFrame {
         Jpanelcontent.revalidate();
         Jpanelcontent.repaint();
     }
-
+    
+    public void exitApplication(){    
+        
+        int confirm = JOptionPane.showConfirmDialog(this, "Do you want to exit the app?",
+                "Confirm Logout",
+                JOptionPane.YES_NO_OPTION);
+        
+        if(confirm == JOptionPane.YES_OPTION){
+            this.dispose();
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,6 +74,7 @@ public class MainMenu extends javax.swing.JFrame {
         btnAddProducts = new javax.swing.JButton();
         btnInventary = new javax.swing.JButton();
         btnCategories = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         Jpanelcontent = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,6 +98,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnCategories.setText("Categories");
         btnCategories.addActionListener(this::btnCategoriesActionPerformed);
 
+        btnExit.setBackground(new java.awt.Color(255, 0, 0));
+        btnExit.setForeground(new java.awt.Color(51, 51, 51));
+        btnExit.setText("Exit");
+        btnExit.addActionListener(this::btnExitActionPerformed);
+
         javax.swing.GroupLayout JpanelSidebarLayout = new javax.swing.GroupLayout(JpanelSidebar);
         JpanelSidebar.setLayout(JpanelSidebarLayout);
         JpanelSidebarLayout.setHorizontalGroup(
@@ -95,7 +112,10 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(JpanelSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAddProducts, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                     .addComponent(btnInventary, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                    .addComponent(btnCategories, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
+                    .addComponent(btnCategories, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                    .addGroup(JpanelSidebarLayout.createSequentialGroup()
+                        .addComponent(btnExit)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         JpanelSidebarLayout.setVerticalGroup(
@@ -107,7 +127,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(btnAddProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(559, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 479, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         Jpanelcontent.setBackground(new java.awt.Color(255, 255, 255));
@@ -166,6 +188,10 @@ public class MainMenu extends javax.swing.JFrame {
         showPanels(caui);
     }//GEN-LAST:event_btnCategoriesActionPerformed
 
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        exitApplication();
+    }//GEN-LAST:event_btnExitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -197,6 +223,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel Jpanelcontent;
     private javax.swing.JButton btnAddProducts;
     private javax.swing.JButton btnCategories;
+    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnInventary;
     // End of variables declaration//GEN-END:variables
 }
