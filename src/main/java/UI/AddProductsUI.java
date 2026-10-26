@@ -5,6 +5,8 @@
 package UI;
 
 import Model.Product;
+import Model.Category;
+import Service.CategoryService;
 import Service.ProductService;
 import javax.swing.JOptionPane;
 
@@ -15,12 +17,15 @@ import javax.swing.JOptionPane;
 public class AddProductsUI extends javax.swing.JPanel {
 
     private ProductService productservice = new ProductService();
+    private CategoryService categoryservice = new CategoryService();
     
     /**
      * Creates new form ProductUI
      */
     public AddProductsUI() {
         initComponents();
+        
+        loadCategories();
     }
     
     /**
@@ -69,6 +74,19 @@ public class AddProductsUI extends javax.swing.JPanel {
         cmbCategory.setSelectedIndex(-1);
     }
 
+    /**
+     * Load the categories into cmbCategory.
+     * 
+     */
+    private void loadCategories(){
+        cmbCategory.removeAllItems();
+        
+        for (Category category : categoryservice.listProductsTable()) {
+            cmbCategory.addItem(category.getNameCategory());
+        }
+        
+        cmbCategory.setSelectedIndex(-1);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
