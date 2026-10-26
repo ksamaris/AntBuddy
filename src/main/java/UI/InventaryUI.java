@@ -32,6 +32,7 @@ public class InventaryUI extends javax.swing.JPanel {
         modeltable.addColumn("Price");
         modeltable.addColumn("Category");
         modeltable.addColumn("Stock");
+        modeltable.addColumn("Stock minimum");
         
         try {
             List<Product> inventarylist = productservice.listProductsTable();
@@ -42,7 +43,8 @@ public class InventaryUI extends javax.swing.JPanel {
                     p.getName(),
                     p.getPrice(),
                     p.getCategory(),
-                    p.getStock()
+                    p.getStock(),
+                    p.getStockMin()
                 };
                 modeltable.addRow(row);
             }
