@@ -46,10 +46,27 @@ public class AddProductsUI extends javax.swing.JPanel {
             String result = productservice.saveProduct(p);
             JOptionPane.showMessageDialog(null, result);
             
+            if(result.equals("Product successfully saved")){
+                cleanFields();
+            }
+            
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Price, Stock, and Minimum Stock must be numbers");
             }
         
+    }
+    
+    /**
+     * Leave all fields blank.
+     * 
+     */
+    public void cleanFields(){
+        txtGTIN.setText("");
+        txtName.setText("");
+        txtPrice.setText("");
+        txtStock.setText("");
+        txtStockMin.setText("");
+        cmbCategory.setSelectedIndex(-1);
     }
 
     /**
