@@ -23,6 +23,10 @@ public class AddProductsUI extends javax.swing.JPanel {
         initComponents();
     }
     
+    /**
+     * Read the product information.
+     * 
+     */
     public void saveProductData(){
         try {
             Product p = new Product();
