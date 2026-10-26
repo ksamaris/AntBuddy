@@ -29,14 +29,14 @@ public class AddProductsUI extends javax.swing.JPanel {
         
             p.setGTIN(txtGTIN.getText().trim());
             p.setName(txtName.getText().trim());
-            p.setPrice(Double.parseDouble(txtPrice1.getText().trim()));
+            p.setPrice(Double.parseDouble(txtPrice.getText().trim()));
             p.setStock(Integer.parseInt(txtStock.getText().trim()));
             p.setStockMin(Integer.parseInt(txtStockMin.getText().trim()));
             
-            if (cboxCategory.getSelectedItem() == null) {
+            if (cmbCategory.getSelectedItem() == null) {
                 p.setCategory("");
             } else {
-                p.setCategory(cboxCategory.getSelectedItem().toString());
+                p.setCategory(cmbCategory.getSelectedItem().toString());
             }
         
             String result = productservice.saveProduct(p);
@@ -69,10 +69,10 @@ public class AddProductsUI extends javax.swing.JPanel {
         labelCategory = new javax.swing.JLabel();
         labelStock = new javax.swing.JLabel();
         labelStockMin = new javax.swing.JLabel();
-        txtPrice1 = new javax.swing.JTextField();
+        txtPrice = new javax.swing.JTextField();
         txtStock = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        cboxCategory = new javax.swing.JComboBox<>();
+        cmbCategory = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -99,8 +99,8 @@ public class AddProductsUI extends javax.swing.JPanel {
         jButton1.setText("Create product");
         jButton1.addActionListener(this::jButton1ActionPerformed);
 
-        cboxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cboxCategory.addActionListener(this::cboxCategoryActionPerformed);
+        cmbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCategory.addActionListener(this::cmbCategoryActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -115,7 +115,7 @@ public class AddProductsUI extends javax.swing.JPanel {
                             .addComponent(txtGTIN, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelPrice)
                             .addComponent(labelStock)
-                            .addComponent(txtPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -124,7 +124,7 @@ public class AddProductsUI extends javax.swing.JPanel {
                             .addComponent(labelCategory)
                             .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                             .addComponent(labelName)
-                            .addComponent(cboxCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(cmbCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jButton1))
                 .addContainerGap(259, Short.MAX_VALUE))
         );
@@ -145,8 +145,8 @@ public class AddProductsUI extends javax.swing.JPanel {
                     .addComponent(labelCategory))
                 .addGap(4, 4, 4)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cboxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelStock)
@@ -172,9 +172,9 @@ public class AddProductsUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cboxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCategoryActionPerformed
+    private void cmbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cboxCategoryActionPerformed
+    }//GEN-LAST:event_cmbCategoryActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         saveProductData();
@@ -182,7 +182,7 @@ public class AddProductsUI extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cboxCategory;
+    private javax.swing.JComboBox<String> cmbCategory;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
@@ -195,7 +195,7 @@ public class AddProductsUI extends javax.swing.JPanel {
     private javax.swing.JLabel labelStockMin;
     private javax.swing.JTextField txtGTIN;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPrice1;
+    private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtStock;
     private javax.swing.JTextField txtStockMin;
     // End of variables declaration//GEN-END:variables
