@@ -40,7 +40,7 @@ public class MainMenu extends javax.swing.JFrame {
      * @param namePanel Panel to display above the content panel.
      */
     void showPanels(javax.swing.JPanel namePanel){
-        namePanel.setSize(694, 600);
+        namePanel.setSize(794, 700);
         namePanel.setLocation(0, 0);
 
         Jpanelcontent.removeAll();
@@ -107,7 +107,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(btnAddProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(459, Short.MAX_VALUE))
+                .addContainerGap(559, Short.MAX_VALUE))
         );
 
         Jpanelcontent.setBackground(new java.awt.Color(255, 255, 255));
@@ -117,7 +117,7 @@ public class MainMenu extends javax.swing.JFrame {
         Jpanelcontent.setLayout(JpanelcontentLayout);
         JpanelcontentLayout.setHorizontalGroup(
             JpanelcontentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 694, Short.MAX_VALUE)
+            .addGap(0, 794, Short.MAX_VALUE)
         );
         JpanelcontentLayout.setVerticalGroup(
             JpanelcontentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +136,7 @@ public class MainMenu extends javax.swing.JFrame {
         JpanelBaseLayout.setVerticalGroup(
             JpanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(JpanelSidebar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Jpanelcontent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jpanelcontent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
