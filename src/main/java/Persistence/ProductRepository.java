@@ -42,6 +42,7 @@ public class ProductRepository {
                 product.setPrice(rs.getDouble(3));
                 product.setCategory(rs.getString(4));
                 product.setStock(rs.getInt(5));
+                product.setStockMin(rs.getInt(6));
                 
                 productslist.add(product);
             }
