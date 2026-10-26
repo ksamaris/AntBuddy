@@ -4,17 +4,48 @@
  */
 package UI;
 
+import Model.Product;
+import Service.ProductService;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kevin
  */
 public class AddProductsUI extends javax.swing.JPanel {
 
+    private ProductService productservice = new ProductService();
+    
     /**
      * Creates new form ProductUI
      */
     public AddProductsUI() {
         initComponents();
+    }
+    
+    public void saveProductData(){
+        try {
+            Product p = new Product();
+        
+            p.setGTIN(txtGTIN.getText().trim());
+            p.setName(txtName.getText().trim());
+            p.setPrice(Double.parseDouble(txtPrice1.getText().trim()));
+            p.setStock(Integer.parseInt(txtStock.getText().trim()));
+            p.setStockMin(Integer.parseInt(txtStockMin.getText().trim()));
+            
+            if (cboxCategory.getSelectedItem() == null) {
+                p.setCategory("");
+            } else {
+                p.setCategory(cboxCategory.getSelectedItem().toString());
+            }
+        
+            String result = productservice.saveProduct(p);
+            JOptionPane.showMessageDialog(null, result);
+            
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Price, Stock, and Minimum Stock must be numbers");
+            }
+        
     }
 
     /**
@@ -66,8 +97,10 @@ public class AddProductsUI extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(0, 153, 255));
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("Create product");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         cboxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboxCategory.addActionListener(this::cboxCategoryActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -138,6 +171,14 @@ public class AddProductsUI extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cboxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxCategoryActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        saveProductData();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
