@@ -27,7 +27,7 @@ public class ProductService {
      * @param p the saved product.
      * @return  A message describing the result.
      */
-    public String saveProduct(Product p){
+    public String validateProduct(Product p){
         if(p.getGTIN().trim().isEmpty() || p.getName().trim().isEmpty()){
             return "The GTIN and the product name are required";
         }
@@ -44,9 +44,20 @@ public class ProductService {
             return "Stock levels cannot be negative";
         }
         
+        return null;
+    }
+    
+    public String saveProduct(Product p){
+        String error = validateProduct(p);
+        
+        if (error != null) {
+            return error;
+        }
+        
         if(productrepository.insertProduct(p)){
             return "Product successfully saved";
         }
+        
         return "The product could not be saved";
     }
 }
