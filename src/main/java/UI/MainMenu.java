@@ -159,6 +159,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnInventaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventaryActionPerformed
         showPanels(inui);
+        inui.loadTableData();
     }//GEN-LAST:event_btnInventaryActionPerformed
 
     private void btnCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoriesActionPerformed

@@ -21,8 +21,6 @@ public class InventaryUI extends javax.swing.JPanel {
      */
     public InventaryUI() {
         initComponents();
-        
-        loadTableData();
     }
     
     public void loadTableData(){
