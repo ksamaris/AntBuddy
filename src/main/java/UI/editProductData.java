@@ -23,7 +23,7 @@ public class editProductData extends javax.swing.JPanel {
     /**
      * Creates new form editProductData
      */
-    public editProductData() {
+    public editProductData(Product p) {
         initComponents();
         
         loadCategories();
