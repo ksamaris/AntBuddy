@@ -26,6 +26,7 @@ public class InventaryUI extends javax.swing.JPanel {
     public InventaryUI() {
         initComponents();
         
+        updateCards();
         tableProducts.setDefaultRenderer(Object.class, new ProductTableRenderer());
         setupSearch();
     }
@@ -157,6 +158,15 @@ public class InventaryUI extends javax.swing.JPanel {
                 loadTableData();
             }
         });
+    }
+    
+    /**
+     * Updates the three dashboard cards with the current values from the database.
+     */
+    private void updateCards() {
+        labelStockTotal1.setText(String.valueOf(productservice.getTotalStock()));
+        labelStockLow.setText(String.valueOf(productservice.getLowStockCount()));
+        labelStockTotal4.setText(String.valueOf(productservice.getCategoriesCount()));
     }
     
     /**
