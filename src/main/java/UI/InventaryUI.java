@@ -2,7 +2,9 @@ package UI;
 
 import Model.Product;
 import Service.ProductService;
+import java.awt.Frame;
 import java.util.List;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
@@ -84,6 +86,19 @@ public class InventaryUI extends javax.swing.JPanel {
             return null;
         }
         
+    }
+    
+    /**
+     * Opens a modal window with the edit form of the given product.
+     * 
+     * @param p the product to edit.
+     */
+    public void openEditPanel(Product p){   
+        JDialog dialog = new JDialog((Frame) null, "Edit product", true);
+        dialog.setContentPane(new editProductData(p));
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
     }
     
     /**
