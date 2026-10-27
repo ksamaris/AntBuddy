@@ -7,6 +7,8 @@ package UI;
 import Model.Category;
 import Model.Product;
 import Service.CategoryService;
+import Service.ProductService;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +17,8 @@ import Service.CategoryService;
 public class editProductData extends javax.swing.JPanel {
 
     private CategoryService categoryservice = new CategoryService();
+    private ProductService productservice = new ProductService();
+    
     /**
      * Creates new form editProductData
      */
@@ -38,6 +42,31 @@ public class editProductData extends javax.swing.JPanel {
         cmbEditCategory.setSelectedItem(p.getCategory());
         txtEditStock.setText(String.valueOf(p.getPrice()));
         txtEditStockMin.setText(String.valueOf(p.getPrice()));
+    }
+    
+    public void updateProductData(){
+        try {
+            Product p = new Product();
+        
+            p.setGTIN(txtEditGTIN.getText().trim());
+            p.setName(txtEditName.getText().trim());
+            p.setPrice(Double.parseDouble(txtEditPrice.getText().trim()));
+            p.setStock(Integer.parseInt(txtEditStock.getText().trim()));
+            p.setStockMin(Integer.parseInt(txtEditStockMin.getText().trim()));
+            
+            if (cmbEditCategory.getSelectedItem() == null) {
+                p.setCategory("");
+            } else {
+                p.setCategory(cmbEditCategory.getSelectedItem().toString());
+            }
+        
+            String result = productservice.saveProduct(p);
+            JOptionPane.showMessageDialog(null, result);
+            
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Price, Stock, and Minimum Stock must be numbers");
+            }
+        
     }
 
     /**
