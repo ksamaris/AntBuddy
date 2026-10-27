@@ -391,7 +391,14 @@ public class InventaryUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-
+        Product p = getRowData();
+        
+        if(p == null){
+            return;
+        }
+        
+        openEditPanel(p);
+        loadTableData();
     }//GEN-LAST:event_btnEditActionPerformed
 
 
