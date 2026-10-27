@@ -157,4 +157,57 @@ public class ProductRepository {
     
         return deleted;
     }
+    
+    /**
+     * Receives an SQL statement to retrieve a numeric result from the database.
+     * 
+     * @param sql the SQL query to execute; it must return a single numeric value
+     * @return numerical result of the query, or 0 if no rows are found or an error occurs.
+     */
+    private int getNumber(String sql) {
+        int result = 0;
+        
+        ConnectionDB objcon = new ConnectionDB();
+        
+        try (Connection conn = objcon.establishConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+                
+            ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                result = rs.getInt(1);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return result;
+    }
+
+    /**
+    * Calculates the total number of units in stock across all products.
+    *
+    * @return the sum of the stock column, or 0 if there are no products
+    */
+    public int getTotalStock() {
+        return getNumber("SELECT COALESCE(SUM(stock), 0) FROM PRODUCT");
+    }
+
+    /**
+    * Counts the products whose stock has reached or fallen below the minimum.
+    *
+    * @return the number of products with low stock
+    */
+    public int getLowStockCount() {
+        return getNumber("SELECT COUNT(*) FROM PRODUCT WHERE stock <= stock_minimum");
+    }
+
+    /**
+    * Counts the categories registered in the database.
+    *
+    * @return the total number of categories
+    */
+    public int getCategoriesCount() {
+        return getNumber("SELECT COUNT(*) FROM CATEGORY");
+    }
 }
