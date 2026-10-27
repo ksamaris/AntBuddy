@@ -44,8 +44,8 @@ public class editProductData extends javax.swing.JPanel {
         txtEditName.setText(p.getName());
         txtEditPrice.setText(String.valueOf(p.getPrice()));
         cmbEditCategory.setSelectedItem(p.getCategory());
-        txtEditStock.setText(String.valueOf(p.getPrice()));
-        txtEditStockMin.setText(String.valueOf(p.getPrice()));
+        txtEditStock.setText(String.valueOf(p.getStock()));
+        txtEditStockMin.setText(String.valueOf(p.getStockMin()));
     }
     
     public void updateProductData(){
