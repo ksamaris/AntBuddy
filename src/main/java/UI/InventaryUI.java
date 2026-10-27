@@ -26,6 +26,7 @@ public class InventaryUI extends javax.swing.JPanel {
     public InventaryUI() {
         initComponents();
         
+        tableProducts.setDefaultRenderer(Object.class, new ProductTableRenderer());
         setupSearch();
     }
     
