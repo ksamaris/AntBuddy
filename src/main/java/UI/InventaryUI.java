@@ -40,8 +40,13 @@ public class InventaryUI extends javax.swing.JPanel {
         
         try {
             List<Product> inventarylist = productservice.listProductsTable();
+            String text = txtSearch.getText().trim().toLowerCase();
             
             for (Product p : inventarylist) {
+                if (!p.matches(text)) {
+                    continue;
+                }
+                
                 Object[] row = {
                     p.getGTIN(),
                     p.getName(),
