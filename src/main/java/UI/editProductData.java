@@ -105,8 +105,10 @@ public class editProductData extends javax.swing.JPanel {
         pnlBaseEdit.setBackground(new java.awt.Color(255, 255, 255));
 
         btnConfirm.setText("Confirm");
+        btnConfirm.addActionListener(this::btnConfirmActionPerformed);
 
         btnExit.setText("Exit");
+        btnExit.addActionListener(this::btnExitActionPerformed);
 
         labelStock.setBackground(new java.awt.Color(0, 0, 0));
         labelStock.setText("Stock");
@@ -207,6 +209,15 @@ public class editProductData extends javax.swing.JPanel {
     private void cmbEditCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEditCategoryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbEditCategoryActionPerformed
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        updateProductData();
+        closePanel();
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        closePanel();
+    }//GEN-LAST:event_btnExitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
