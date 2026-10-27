@@ -125,4 +125,36 @@ public class ProductRepository {
         
         return updated;
     }
+    
+    /**
+    * Deletes a product from the database, identified by its GTIN.
+     * 
+    * @param gtin the GTIN of the product to delete.
+    * @return true if the product was deleted, false otherwise.
+    */
+    public boolean deleteProduct(String gtin){
+        boolean deleted = false;
+    
+        try{
+            ConnectionDB objcon = new ConnectionDB();
+            Connection conn = objcon.establishConnection();
+        
+            String sql = "DELETE FROM product WHERE gtin = ?";
+        
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, gtin);
+        
+            if (ps.executeUpdate() > 0) {
+                deleted = true;
+            }
+        
+            ps.close();
+            conn.close();
+        
+        }catch(SQLException e){
+            System.err.println("ERROR : " + e.toString());
+        }
+    
+        return deleted;
+    }
 }
