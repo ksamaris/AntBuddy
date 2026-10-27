@@ -25,6 +25,9 @@ public class editProductData extends javax.swing.JPanel {
      */
     public editProductData() {
         initComponents();
+        
+        loadCategories();
+        loadProductData(p);
     }
     
     private void loadCategories(){
