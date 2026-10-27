@@ -9,6 +9,7 @@ import Model.Product;
 import Service.CategoryService;
 import Service.ProductService;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -67,6 +68,10 @@ public class editProductData extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Price, Stock, and Minimum Stock must be numbers");
             }
         
+    }
+    
+    public void closePanel(){
+        SwingUtilities.getWindowAncestor(this).dispose();
     }
 
     /**
