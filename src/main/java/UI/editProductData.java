@@ -64,8 +64,8 @@ public class editProductData extends javax.swing.JPanel {
                 p.setCategory(cmbEditCategory.getSelectedItem().toString());
             }
         
-            String result = productservice.saveProduct(p);
-            JOptionPane.showMessageDialog(null, result);
+            String result = productservice.updateProduct(p);
+            JOptionPane.showMessageDialog(this, result);
             
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Price, Stock, and Minimum Stock must be numbers");
