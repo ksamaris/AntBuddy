@@ -191,7 +191,7 @@ public class CategoryUI extends javax.swing.JPanel {
             pnlBaseTableCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBaseTableCategoryLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlBaseTableCategoryLayout.setVerticalGroup(
@@ -206,14 +206,14 @@ public class CategoryUI extends javax.swing.JPanel {
         pnlBaseCategory.setLayout(pnlBaseCategoryLayout);
         pnlBaseCategoryLayout.setHorizontalGroup(
             pnlBaseCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBaseCategoryLayout.createSequentialGroup()
-                .addContainerGap(153, Short.MAX_VALUE)
-                .addComponent(pnlBaseSearchCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
             .addGroup(pnlBaseCategoryLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlBaseTableCategory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(pnlBaseCategoryLayout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(pnlBaseSearchCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlBaseCategoryLayout.setVerticalGroup(
             pnlBaseCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
