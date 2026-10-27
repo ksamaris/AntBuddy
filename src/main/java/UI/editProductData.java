@@ -4,17 +4,40 @@
  */
 package UI;
 
+import Model.Category;
+import Model.Product;
+import Service.CategoryService;
+
 /**
  *
  * @author kevin
  */
 public class editProductData extends javax.swing.JPanel {
 
+    private CategoryService categoryservice = new CategoryService();
     /**
      * Creates new form editProductData
      */
     public editProductData() {
         initComponents();
+    }
+    
+    private void loadCategories(){
+        cmbEditCategory.removeAllItems();
+        
+        for (Category category : categoryservice.listProductsTable()) {
+            cmbEditCategory.addItem(category.getNameCategory());
+        }
+    }
+    
+    private void loadProductData(Product p){
+        txtEditGTIN.setText(p.getGTIN());
+        txtEditGTIN.setEditable(false);
+        txtEditName.setText(p.getName());
+        txtEditPrice.setText(String.valueOf(p.getPrice()));
+        cmbEditCategory.setSelectedItem(p.getCategory());
+        txtEditStock.setText(String.valueOf(p.getPrice()));
+        txtEditStockMin.setText(String.valueOf(p.getPrice()));
     }
 
     /**
