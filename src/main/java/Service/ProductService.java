@@ -80,4 +80,22 @@ public class ProductService {
         
         return "The product could not be updated";
     }
+    
+    /**
+    * Deletes the product with the given GTIN.
+     * 
+    * @param gtin the GTIN of the product to delete.
+    * @return A message describing the result.
+    */
+    public String deleteProduct(String gtin){
+        if(gtin == null || gtin.trim().isEmpty()){
+            return "The GTIN is required to delete a product";
+        }
+    
+        if(productrepository.deleteProduct(gtin)){
+            return "Product successfully deleted";
+        }
+    
+        return "The product could not be deleted";
+    }
 }
