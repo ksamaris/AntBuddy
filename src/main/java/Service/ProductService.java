@@ -98,4 +98,31 @@ public class ProductService {
     
         return "The product could not be deleted";
     }
+
+    /**
+     * Gets the total number of units in stock across all products.
+     *
+     * @return the sum of the stock of all products
+     */
+    public int getTotalStock() {
+        return productrepository.getTotalStock();
+    }
+
+    /**
+     * Gets the number of products whose stock has reached or fallen below the minimum.
+     *
+     * @return the number of products with low stock
+     */
+    public int getLowStockCount() {
+        return productrepository.getLowStockCount();
+    }
+
+    /**
+     * Gets the number of registered categories.
+     *
+     * @return the total number of categories
+     */
+    public int getCategoriesCount() {
+        return productrepository.getCategoriesCount();
+    }
 }
