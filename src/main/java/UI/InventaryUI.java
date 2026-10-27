@@ -23,6 +23,8 @@ public class InventaryUI extends javax.swing.JPanel {
      */
     public InventaryUI() {
         initComponents();
+        
+        setupSearch();
     }
     
     public void loadTableData(){
@@ -125,6 +127,28 @@ public class InventaryUI extends javax.swing.JPanel {
     private void deleteProductData(Product p){
         String result = productservice.deleteProduct(p.getGTIN());
         JOptionPane.showMessageDialog(this, result);
+    }
+    
+    /**
+    * Makes the search field reload the table each time its text changes.
+    */
+    private void setupSearch(){
+        txtSearch.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                loadTableData();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                loadTableData();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                loadTableData();
+            }
+        });
     }
     
     /**
