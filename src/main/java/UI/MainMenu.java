@@ -12,7 +12,6 @@ public class MainMenu extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainMenu.class.getName());
     
-    private AddProductsUI addproductsui;
     private InventaryUI inui;
     private CategoryUI caui;
     
@@ -25,10 +24,9 @@ public class MainMenu extends javax.swing.JFrame {
         setTitle("AntBuddy");
         setLocationRelativeTo(null);
         
-        addproductsui = new AddProductsUI();
         inui = new InventaryUI();
         caui =new CategoryUI();
-        showPanels(addproductsui);
+        showPanels(inui);
         
         ConnectionDB connecobj = new ConnectionDB();
         connecobj.establishConnection();
@@ -71,7 +69,6 @@ public class MainMenu extends javax.swing.JFrame {
 
         JpanelBase = new javax.swing.JPanel();
         JpanelSidebar = new javax.swing.JPanel();
-        btnAddProducts = new javax.swing.JButton();
         btnInventary = new javax.swing.JButton();
         btnCategories = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
@@ -82,11 +79,6 @@ public class MainMenu extends javax.swing.JFrame {
         JpanelBase.setBackground(new java.awt.Color(102, 102, 102));
 
         JpanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
-
-        btnAddProducts.setBackground(new java.awt.Color(255, 255, 102));
-        btnAddProducts.setForeground(new java.awt.Color(0, 0, 0));
-        btnAddProducts.setText("Add products");
-        btnAddProducts.addActionListener(this::btnAddProductsActionPerformed);
 
         btnInventary.setBackground(new java.awt.Color(0, 204, 51));
         btnInventary.setForeground(new java.awt.Color(0, 0, 0));
@@ -110,7 +102,6 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(JpanelSidebarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JpanelSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAddProducts, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                     .addComponent(btnInventary, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                     .addComponent(btnCategories, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                     .addGroup(JpanelSidebarLayout.createSequentialGroup()
@@ -123,9 +114,7 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(JpanelSidebarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnInventary, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAddProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(53, 53, 53)
                 .addComponent(btnCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 479, Short.MAX_VALUE)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,10 +164,6 @@ public class MainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductsActionPerformed
-        showPanels(addproductsui);
-    }//GEN-LAST:event_btnAddProductsActionPerformed
-
     private void btnInventaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventaryActionPerformed
         showPanels(inui);
         inui.loadTableData();
@@ -222,7 +207,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel JpanelBase;
     private javax.swing.JPanel JpanelSidebar;
     private javax.swing.JPanel Jpanelcontent;
-    private javax.swing.JButton btnAddProducts;
     private javax.swing.JButton btnCategories;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnInventary;
