@@ -211,6 +211,7 @@ public class AddProduct extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbCategoryActionPerformed
 
     private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
+        saveProductData();
         closePanel();
     }//GEN-LAST:event_btnAddProductActionPerformed
 
