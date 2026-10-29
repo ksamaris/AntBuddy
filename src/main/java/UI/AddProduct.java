@@ -23,7 +23,6 @@ public class AddProduct extends javax.swing.JPanel {
         initComponents();
         
         loadCategories();
-        loadProductData(p);
     }
     
     private void loadCategories(){
@@ -32,16 +31,6 @@ public class AddProduct extends javax.swing.JPanel {
         for (Category category : categoryservice.listProductsTable()) {
             cmbCategory.addItem(category.getNameCategory());
         }
-    }
-    
-    private void loadProductData(Product p){
-        txtGTIN.setText(p.getGTIN());
-        txtGTIN.setEditable(false);
-        txtName.setText(p.getName());
-        txtPrice.setText(String.valueOf(p.getPrice()));
-        cmbCategory.setSelectedItem(p.getCategory());
-        txtStock.setText(String.valueOf(p.getStock()));
-        txtStockMin.setText(String.valueOf(p.getStockMin()));
     }
     
     public void closePanel(){
