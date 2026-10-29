@@ -112,6 +112,19 @@ public class InventaryUI extends javax.swing.JPanel {
     }
     
     /**
+     * Opens a modal window with the form for adding a product.
+     *
+     * @param p the product to be added.
+     */
+    public void openAddPanel(Product p){   
+        JDialog dialog = new JDialog((Frame) null, "Add product", true);
+        dialog.setContentPane(new AddProduct(p));
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
+    }
+    
+    /**
     * Asks the user to confirm the deletion of a product.
     * 
     * @param p the product to delete.
@@ -494,7 +507,8 @@ public class InventaryUI extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-        // TODO add your handling code here:
+        Product p = new Product();
+        openAddPanel(p);
     }//GEN-LAST:event_btnNewActionPerformed
 
 
