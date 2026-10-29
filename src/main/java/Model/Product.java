@@ -83,6 +83,10 @@ public class Product {
         this.StockMin = StockMin;
     }
     
+    public boolean isLowStock() {
+        return Stock <= StockMin;
+    }
+    
     /**
     * Checks if the product's GTIN, name or category contains the searched text.
     *
