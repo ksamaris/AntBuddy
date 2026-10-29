@@ -203,7 +203,7 @@ public class InventaryUI extends javax.swing.JPanel {
         panelTableProducts = new RoundedPanel(30);
         jScrollPane1 = new javax.swing.JScrollPane();
         tableProducts = new javax.swing.JTable();
-        panelBaseSearch = new RoundedPanel(30);
+        panelBaseSearch = new RoundedPanel(37);
         txtSearch = new javax.swing.JTextField();
         jPanel7 = new RoundedPanel(30);
         labelTextStockLow = new javax.swing.JLabel();
@@ -304,7 +304,7 @@ public class InventaryUI extends javax.swing.JPanel {
             panelTableProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTableProductsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelTableProductsLayout.setVerticalGroup(
@@ -318,8 +318,10 @@ public class InventaryUI extends javax.swing.JPanel {
         panelBaseSearch.setBackground(new java.awt.Color(255, 255, 255));
 
         txtSearch.setBackground(new java.awt.Color(255, 255, 255));
-        txtSearch.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtSearch.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
         txtSearch.setForeground(new java.awt.Color(102, 102, 102));
+        txtSearch.setBorder(null);
+        txtSearch.addActionListener(this::txtSearchActionPerformed);
 
         javax.swing.GroupLayout panelBaseSearchLayout = new javax.swing.GroupLayout(panelBaseSearch);
         panelBaseSearch.setLayout(panelBaseSearchLayout);
@@ -327,15 +329,15 @@ public class InventaryUI extends javax.swing.JPanel {
             panelBaseSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBaseSearchLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
+                .addComponent(txtSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelBaseSearchLayout.setVerticalGroup(
             panelBaseSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBaseSearchLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
@@ -422,10 +424,6 @@ public class InventaryUI extends javax.swing.JPanel {
         panelBaseInventaryUI.setLayout(panelBaseInventaryUILayout);
         panelBaseInventaryUILayout.setHorizontalGroup(
             panelBaseInventaryUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBaseInventaryUILayout.createSequentialGroup()
-                .addGap(0, 65, Short.MAX_VALUE)
-                .addComponent(panelBaseSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104))
             .addGroup(panelBaseInventaryUILayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelBaseInventaryUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -446,6 +444,10 @@ public class InventaryUI extends javax.swing.JPanel {
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(panelBaseInventaryUILayout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addComponent(panelBaseSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelBaseInventaryUILayout.setVerticalGroup(
             panelBaseInventaryUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -457,7 +459,7 @@ public class InventaryUI extends javax.swing.JPanel {
                     .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelBaseSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(27, 27, 27)
                 .addComponent(panelTableProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(panelBaseInventaryUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -509,6 +511,10 @@ public class InventaryUI extends javax.swing.JPanel {
         Product p = new Product();
         openAddPanel(p);
     }//GEN-LAST:event_btnNewActionPerformed
+
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
