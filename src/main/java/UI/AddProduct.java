@@ -3,6 +3,8 @@ package UI;
 import Model.Category;
 import Model.Product;
 import Service.CategoryService;
+import Service.ProductService;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
@@ -12,6 +14,7 @@ import javax.swing.SwingUtilities;
 public class AddProduct extends javax.swing.JPanel {
 
     private CategoryService categoryservice = new CategoryService();
+    private ProductService productservice = new ProductService();
     
     /**
      * Creates new form editProductData
@@ -43,6 +46,35 @@ public class AddProduct extends javax.swing.JPanel {
     
     public void closePanel(){
         SwingUtilities.getWindowAncestor(this).dispose();
+    }
+    
+    /**
+     * Read the product information.
+     * 
+     */
+    public void saveProductData(){
+        try {
+            Product p = new Product();
+        
+            p.setGTIN(txtGTIN.getText().trim());
+            p.setName(txtName.getText().trim());
+            p.setPrice(Double.parseDouble(txtPrice.getText().trim()));
+            p.setStock(Integer.parseInt(txtStock.getText().trim()));
+            p.setStockMin(Integer.parseInt(txtStockMin.getText().trim()));
+            
+            if (cmbCategory.getSelectedItem() == null) {
+                p.setCategory("");
+            } else {
+                p.setCategory(cmbCategory.getSelectedItem().toString());
+            }
+        
+            String result = productservice.saveProduct(p);
+            JOptionPane.showMessageDialog(null, result);
+            
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Price, Stock, and Minimum Stock must be numbers");
+            }
+        
     }
 
     /**
