@@ -23,6 +23,7 @@ public class CategoryUI extends javax.swing.JPanel {
         initComponents();
         
         loadCategoryTableData();
+        setupSearch();
     }
 
     /**
@@ -37,9 +38,14 @@ public class CategoryUI extends javax.swing.JPanel {
         modelcategorytable.addColumn("Category Name");
         
         try {
-            List<Category> categorieslist = categoryservice.listProductsTable();
+            List<Category> categorysList = categoryservice.listProductsTable();
+            String text = txtSearchCategory.getText().trim().toLowerCase();
             
-            for (Category c : categorieslist) {
+            for (Category c : categorysList) {
+                if (!c.matches(text)) {
+                    continue;
+                }
+                
                 Object[] row = {
                     c.getCodeCategory(),
                     c.getNameCategory()
