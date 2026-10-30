@@ -47,56 +47,56 @@ public class ProductService {
         return null;
     }
     
-    public ServiceResult saveProduct(Product p){
+    public String saveProduct(Product p){
         String error = validateProduct(p);
         
         if (error != null) {
-            return ServiceResult.error(error);
+            return error;
         }
         
         if(productrepository.insertProduct(p)){
-            return ServiceResult.ok("Product successfully saved");
+            return "Product successfully saved";
         }
         
-        return ServiceResult.error("The product could not be saved");
+        return "The product could not be saved";
     }
     
     /**
      * Check the validity of a product's new data and update it if all the rules are met.
      * 
      * @param p the product with the new information.
-     * @return A ServiceResult with the outcome and a message describing the result.
+     * @return A message describing the result.
      */
-    public ServiceResult updateProduct(Product p){
+    public String updateProduct(Product p){
         String error = validateProduct(p);
         
         if (error != null) {
-            return ServiceResult.error(error);
+            return error;
         }
         
         if(productrepository.updateProduct(p)){
-            return ServiceResult.ok("Product successfully updated");
+            return "Product successfully updated";
         }
         
-        return ServiceResult.error("The product could not be updated");
+        return "The product could not be updated";
     }
     
     /**
     * Deletes the product with the given GTIN.
      * 
     * @param gtin the GTIN of the product to delete.
-    * @return A ServiceResult with the outcome and a message describing the result.
+    * @return A message describing the result.
     */
-    public ServiceResult deleteProduct(String gtin){
+    public String deleteProduct(String gtin){
         if(gtin == null || gtin.trim().isEmpty()){
-            return ServiceResult.error("The GTIN is required to delete a product");
+            return "The GTIN is required to delete a product";
         }
     
         if(productrepository.deleteProduct(gtin)){
-            return ServiceResult.ok("Product successfully deleted");
+            return "Product successfully deleted";
         }
     
-        return ServiceResult.error("The product could not be deleted");
+        return "The product could not be deleted";
     }
 
     /**

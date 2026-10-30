@@ -50,7 +50,7 @@ public class editProductData extends javax.swing.JPanel {
         txtEditStockMin.setText(String.valueOf(p.getStockMin()));
     }
     
-        public void updateProductData(){
+    public void updateProductData(){
         try {
             Product p = new Product();
         
@@ -66,11 +66,11 @@ public class editProductData extends javax.swing.JPanel {
                 p.setCategory(cmbEditCategory.getSelectedItem().toString());
             }
         
-            updatedProduct = p;
-            result = productservice.updateProduct(p);
+            String result = productservice.updateProduct(p);
+            Notification.show(result);
             
         } catch (NumberFormatException e) {
-            result = ServiceResult.error("Price, Stock, and Minimum Stock must be numbers");
+            Notification.show("Price, Stock, and Minimum Stock must be numbers");
         }
     }
     
