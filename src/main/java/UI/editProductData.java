@@ -8,7 +8,7 @@ import Model.Category;
 import Model.Product;
 import Service.CategoryService;
 import Service.ProductService;
-import javax.swing.JOptionPane;
+import Service.ServiceResult;
 import javax.swing.SwingUtilities;
 
 /**
@@ -19,6 +19,8 @@ public class editProductData extends javax.swing.JPanel {
 
     private CategoryService categoryservice = new CategoryService();
     private ProductService productservice = new ProductService();
+    private ServiceResult result;
+    private Product updatedProduct;
     
     /**
      * Creates new form editProductData
@@ -48,7 +50,7 @@ public class editProductData extends javax.swing.JPanel {
         txtEditStockMin.setText(String.valueOf(p.getStockMin()));
     }
     
-    public void updateProductData(){
+        public void updateProductData(){
         try {
             Product p = new Product();
         
@@ -64,13 +66,30 @@ public class editProductData extends javax.swing.JPanel {
                 p.setCategory(cmbEditCategory.getSelectedItem().toString());
             }
         
-            String result = productservice.updateProduct(p);
-            JOptionPane.showMessageDialog(this, result);
+            updatedProduct = p;
+            result = productservice.updateProduct(p);
             
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Price, Stock, and Minimum Stock must be numbers");
-            }
-        
+        } catch (NumberFormatException e) {
+            result = ServiceResult.error("Price, Stock, and Minimum Stock must be numbers");
+        }
+    }
+    
+    /**
+     * Gets the result of the last update attempt.
+     * 
+     * @return the result, or null if nothing was updated.
+     */
+    public ServiceResult getResult(){
+        return result;
+    }
+    
+    /**
+     * Gets the product built from the form in the last update attempt.
+     * 
+     * @return the product, or null if nothing was updated.
+     */
+    public Product getUpdatedProduct(){
+        return updatedProduct;
     }
     
     public void closePanel(){

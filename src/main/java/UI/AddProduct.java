@@ -4,7 +4,7 @@ import Model.Category;
 import Model.Product;
 import Service.CategoryService;
 import Service.ProductService;
-import javax.swing.JOptionPane;
+import Service.ServiceResult;
 import javax.swing.SwingUtilities;
 
 /**
@@ -15,6 +15,8 @@ public class AddProduct extends javax.swing.JPanel {
 
     private CategoryService categoryservice = new CategoryService();
     private ProductService productservice = new ProductService();
+    private ServiceResult result;
+    private Product savedProduct;
     
     /**
      * Creates new form editProductData
@@ -36,7 +38,7 @@ public class AddProduct extends javax.swing.JPanel {
     public void closePanel(){
         SwingUtilities.getWindowAncestor(this).dispose();
     }
-    
+   
     /**
      * Read the product information.
      * 
@@ -57,13 +59,30 @@ public class AddProduct extends javax.swing.JPanel {
                 p.setCategory(cmbCategory.getSelectedItem().toString());
             }
         
-            String result = productservice.saveProduct(p);
-            JOptionPane.showMessageDialog(null, result);
+            savedProduct = p;
+            result = productservice.saveProduct(p);
             
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Price, Stock, and Minimum Stock must be numbers");
-            }
-        
+        } catch (NumberFormatException e) {
+            result = ServiceResult.error("Price, Stock, and Minimum Stock must be numbers");
+        }
+    }
+    
+    /**
+     * Gets the result of the last save attempt.
+     * 
+     * @return the result, or null if nothing was saved.
+     */
+    public ServiceResult getResult(){
+        return result;
+    }
+    
+    /**
+     * Gets the product built from the form in the last save attempt.
+     * 
+     * @return the product, or null if nothing was saved.
+     */
+    public Product getSavedProduct(){
+        return savedProduct;
     }
 
     /**
