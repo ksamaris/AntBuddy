@@ -67,7 +67,7 @@ public class CategoryUI extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableProducts1 = new javax.swing.JTable();
         pnlBaseCategory = new javax.swing.JPanel();
-        pnlBaseSearchCategory = new javax.swing.JPanel();
+        pnlBaseSearchCategory = new RoundedPanel(37);
         txtSearchCategory = new javax.swing.JTextField();
         pnlBaseTableCategory = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -154,6 +154,7 @@ public class CategoryUI extends javax.swing.JPanel {
         txtSearchCategory.setBackground(new java.awt.Color(255, 255, 255));
         txtSearchCategory.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtSearchCategory.setForeground(new java.awt.Color(102, 102, 102));
+        txtSearchCategory.addActionListener(this::txtSearchCategoryActionPerformed);
 
         javax.swing.GroupLayout pnlBaseSearchCategoryLayout = new javax.swing.GroupLayout(pnlBaseSearchCategory);
         pnlBaseSearchCategory.setLayout(pnlBaseSearchCategoryLayout);
@@ -161,16 +162,18 @@ public class CategoryUI extends javax.swing.JPanel {
             pnlBaseSearchCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBaseSearchCategoryLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtSearchCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
+                .addComponent(txtSearchCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlBaseSearchCategoryLayout.setVerticalGroup(
             pnlBaseSearchCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBaseSearchCategoryLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtSearchCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(txtSearchCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        txtSearchCategory.setBorder(null);
 
         tblCategory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -210,17 +213,17 @@ public class CategoryUI extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(pnlBaseTableCategory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(pnlBaseCategoryLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBaseCategoryLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnlBaseSearchCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(173, 173, 173))
         );
         pnlBaseCategoryLayout.setVerticalGroup(
             pnlBaseCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBaseCategoryLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(17, 17, 17)
                 .addComponent(pnlBaseSearchCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(pnlBaseTableCategory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -236,6 +239,10 @@ public class CategoryUI extends javax.swing.JPanel {
             .addComponent(pnlBaseCategory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtSearchCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchCategoryActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
