@@ -4,6 +4,8 @@
 
 package com.mycompany.antbuddy;
 
+import UI.MainMenu;
+
 /**
  *
  * @author kevin
@@ -11,6 +13,7 @@ package com.mycompany.antbuddy;
 public class AntBuddy {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        MainMenu view = new MainMenu();
+        view.setVisible(true);
     }
 }
