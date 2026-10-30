@@ -10,10 +10,6 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import javax.swing.table.DefaultTableModel;
-import Service.ServiceResult;
-import UI.notification.Notification;
-import UI.notification.NotificationType;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -110,14 +106,11 @@ public class InventaryUI extends javax.swing.JPanel {
      * @param p the product to edit.
      */
     public void openEditPanel(Product p){   
-        editProductData panel = new editProductData(p);
         JDialog dialog = new JDialog((Frame) null, "Edit product", true);
-        dialog.setContentPane(panel);
+        dialog.setContentPane(new editProductData(p));
         dialog.pack();
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
-        
-        showSaveResult(panel.getResult(), panel.getUpdatedProduct());
     }
     
     /**
@@ -126,14 +119,11 @@ public class InventaryUI extends javax.swing.JPanel {
      * @param p the product to be added.
      */
     public void openAddPanel(Product p){   
-        AddProduct panel = new AddProduct(p);
         JDialog dialog = new JDialog((Frame) null, "Add product", true);
-        dialog.setContentPane(panel);
+        dialog.setContentPane(new AddProduct(p));
         dialog.pack();
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
-        
-        showSaveResult(panel.getResult(), panel.getSavedProduct());
     }
     
     /**
@@ -152,56 +142,14 @@ public class InventaryUI extends javax.swing.JPanel {
         return option == JOptionPane.YES_OPTION;
     }
     
-        /**
+    /**
     * Deletes the product and shows the result to the user.
     * 
     * @param p the product to delete.
     */
     private void deleteProductData(Product p){
-        showResult(productservice.deleteProduct(p.getGTIN()));
-    }
-    
-        /**
-     * Shows the result of a save or update and warns if the stock is low.
-     * 
-     * @param result  the result of the operation, or null if the user closed the form without saving.
-     * @param product the product that was saved.
-     */
-    private void showSaveResult(ServiceResult result, Product product){
-        if (result == null) {
-            return;
-        }
-        
-        showResult(result);
-        
-        if (result.isSuccess()) {
-            showLowStockWarning(product);
-        }
-    }
-    
-    /**
-     * Shows a success or error notification for the given result.
-     * 
-     * @param result the result of the operation.
-     */
-    private void showResult(ServiceResult result){
-        NotificationType type = result.isSuccess()
-                ? NotificationType.SUCCESS
-                : NotificationType.ERROR;
-        
-        Notification.show(SwingUtilities.getWindowAncestor(this), type, result.getMessage());
-    }
-    
-    /**
-     * Shows a warning notification if the product has low stock.
-     * 
-     * @param product the product to check.
-     */
-    private void showLowStockWarning(Product product){
-        if (product.isLowStock()) {
-            Notification.show(SwingUtilities.getWindowAncestor(this),
-                    NotificationType.WARNING, "Low stock: " + product.getName());
-        }
+        String result = productservice.deleteProduct(p.getGTIN());
+        Notification.show(result);
     }
     
     /**

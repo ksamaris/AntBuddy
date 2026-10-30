@@ -38,11 +38,11 @@ public class AddProduct extends javax.swing.JPanel {
     public void closePanel(){
         SwingUtilities.getWindowAncestor(this).dispose();
     }
-   
+    
     /**
-     * Read the product information.
-     * 
-     */
+    * Read the product information.
+    * 
+    */
     public void saveProductData(){
         try {
             Product p = new Product();
@@ -59,11 +59,11 @@ public class AddProduct extends javax.swing.JPanel {
                 p.setCategory(cmbCategory.getSelectedItem().toString());
             }
         
-            savedProduct = p;
-            result = productservice.saveProduct(p);
+            String result = productservice.saveProduct(p);
+            Notification.show(result);
             
         } catch (NumberFormatException e) {
-            result = ServiceResult.error("Price, Stock, and Minimum Stock must be numbers");
+            Notification.show("Price, Stock, and Minimum Stock must be numbers");
         }
     }
     
