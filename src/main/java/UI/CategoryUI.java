@@ -168,7 +168,7 @@ public class CategoryUI extends javax.swing.JPanel {
                     .addContainerGap()))
         );
 
-        pnlBaseCategory.setBackground(new java.awt.Color(204, 255, 204));
+        pnlBaseCategory.setBackground(new java.awt.Color(204, 204, 204));
 
         pnlBaseSearchCategory.setBackground(new java.awt.Color(255, 255, 255));
 
