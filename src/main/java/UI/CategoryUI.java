@@ -4,6 +4,8 @@ import Model.Category;
 import Service.CategoryService;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -50,6 +52,25 @@ public class CategoryUI extends javax.swing.JPanel {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ERROR: " + e.toString());
         }
+    }
+    
+    private void setupSearch(){
+        txtSearchCategory.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                loadCategoryTableData();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                loadCategoryTableData();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                loadCategoryTableData();
+            }
+        });
     }
     /**
      * This method is called from within the constructor to initialize the form.
