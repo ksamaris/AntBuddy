@@ -82,4 +82,20 @@ public class Product {
     public void setStockMin(int StockMin) {
         this.StockMin = StockMin;
     }
+    
+    public boolean isLowStock() {
+        return Stock <= StockMin;
+    }
+    
+    /**
+    * Checks if the product's GTIN, name or category contains the searched text.
+    *
+    * @param text the searched text, in lowercase. If it is empty, the product always matches.
+    * @return true if the product matches the search.
+    */
+    public boolean matches(String text){
+        return GTIN.toLowerCase().contains(text)
+                || Name.toLowerCase().contains(text)
+                || Category.toLowerCase().contains(text);
+    }
 }
