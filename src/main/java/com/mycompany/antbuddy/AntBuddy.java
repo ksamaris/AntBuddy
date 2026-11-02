@@ -4,16 +4,27 @@
 
 package com.mycompany.antbuddy;
 
-import UI.MainMenu;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 /**
  *
  * @author kevin
  */
-public class AntBuddy {
+public class AntBuddy extends Application {
+
+    @Override
+    public void start(Stage stage) {
+        Label title = new Label("AntBuddy");
+        stage.setScene(new Scene(new StackPane(title), 900, 600));
+        stage.setTitle("AntBuddy");
+        stage.show();
+    }
 
     public static void main(String[] args) {
-        MainMenu view = new MainMenu();
-        view.setVisible(true);
+        launch(args);
     }
 }
