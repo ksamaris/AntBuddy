@@ -10,7 +10,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>26</maven.compiler.release>
         <javafx.version>26.0.1</javafx.version>
-        <exec.mainClass>com.mycompany.antbuddy.AntBuddy</exec.mainClass>
+        <exec.mainClass>com.mycompany.antbuddy.Launcher</exec.mainClass>
     </properties>
 
     <dependencies>
