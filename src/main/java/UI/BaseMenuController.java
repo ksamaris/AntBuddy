@@ -5,6 +5,7 @@ package UI;
  * @author kevin
  */
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import java.util.List;
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 
 public class BaseMenuController {
@@ -55,7 +57,7 @@ public class BaseMenuController {
 
     @FXML
     void handleInventario(ActionEvent event) {
-        openSection(btnInventario, "Inventario");
+        openFxml(btnInventario, "/fxml/Inventory.fxml");
     }
 
     @FXML
@@ -78,8 +80,9 @@ public class BaseMenuController {
         assert lblLogo != null : "fx:id=\"lblLogo\" was not injected: check your FXML file 'BaseMenu.fxml'.";
 
         menuButtons = List.of(btnInventario, btnCategorias, btnMovimientos);
-        openSection(btnInventario, "Inventario");
+        openFxml(btnInventario, "/fxml/Inventory.fxml");
     }
+    
     
     private void openSection(Button button, String name) {
         setActive(button);
@@ -96,5 +99,14 @@ public class BaseMenuController {
     private void showView(Node view) {
         contentArea.getChildren().setAll(view);
     }
-
+    
+        private void openFxml(Button button, String path) {
+        setActive(button);
+        try {
+            showView(FXMLLoader.load(getClass().getResource(path)));
+        } catch (IOException e) {
+            showView(new Label("No se pudo cargar la pantalla: " + path));
+            e.printStackTrace();
+        }
+    }
 }
