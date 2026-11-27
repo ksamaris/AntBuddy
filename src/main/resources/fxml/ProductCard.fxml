@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="apProductsCardsBase" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onProductCardClicked" prefHeight="315.0" prefWidth="200.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #FFFFFF; -fx-border-color: #FFFFFF;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ProductCardController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="5.0" layoutY="6.0" prefHeight="305.0" prefWidth="190.0" spacing="3.0">
+         <children>
+            <ImageView fx:id="imgProduct" fitHeight="190.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lblNameProduct" alignment="CENTER" prefHeight="19.0" prefWidth="190.0" text="Product Name">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="lblCategoryProduct" prefHeight="19.0" prefWidth="175.0" text="Product category">
+               <font>
+                  <Font name="Verdana" size="11.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="lblPriceProduct" prefHeight="19.0" prefWidth="175.0" text="Product price">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="pbProductStockQuantity" prefHeight="15.0" prefWidth="180.0" progress="0.0" style="-fx-background-radius: 35; -fx-border-radius: 35;">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </ProgressBar>
+         </children>
+      </VBox>
+   </children>
+   <effect>
+      <DropShadow blurType="ONE_PASS_BOX" height="30.0" offsetX="10.0" offsetY="10.0" radius="14.5" width="30.0">
+         <color>
+            <Color red="0.6705882549285889" green="0.48235294222831726" blue="0.32156863808631897" opacity="0.3499999940395355" />
+         </color>
+      </DropShadow>
+   </effect>
+</AnchorPane>
