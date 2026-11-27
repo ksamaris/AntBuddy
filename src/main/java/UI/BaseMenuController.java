@@ -52,7 +52,7 @@ public class BaseMenuController {
 
     @FXML
     void handleCategorias(ActionEvent event) {
-        openSection(btnCategorias, "Categorias");
+        openFxml(btnCategorias, "/fxml/Categories.fxml");
     }
 
     @FXML
